@@ -1,5 +1,6 @@
-package com.sambit.toyandgames;
+package com.sambit.toyandgames.Models;
 
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import lombok.AllArgsConstructor;
@@ -14,7 +15,8 @@ import lombok.Setter;
 
 @Document(collection = "items")
 public class Item {
-    private int id;
+    @Id
+    private String id;
     private String name;
     private String category;
     private double unitPrice;
