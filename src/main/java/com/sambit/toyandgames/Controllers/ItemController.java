@@ -47,9 +47,12 @@ public class ItemController {
         Optional<Item> currItem = itemService.findById(id);
         if (currItem.isPresent()) {
             Item _currItem = currItem.get();
-            _currItem.setCategory(item.getCategory());
-            _currItem.setName(item.getName());
-            _currItem.setUnitPrice(item.getUnitPrice());
+            if(item.getCategory()!=null) 
+                _currItem.setCategory(item.getCategory());
+            if(item.getName()!=null) 
+                _currItem.setName(item.getName());
+            if(item.getUnitPrice()>0)
+                _currItem.setUnitPrice(item.getUnitPrice());
             return new ResponseEntity<>(itemService.save(_currItem),HttpStatus.OK);
         }else{
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);

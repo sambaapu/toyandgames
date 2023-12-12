@@ -16,7 +16,7 @@ import lombok.Setter;
 @Document(collection = "items")
 public class Item {
     @Id
-    private String id;
+    private String _id;
     private String name;
     private String category;
     private double unitPrice;
