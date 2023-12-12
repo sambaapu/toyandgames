@@ -35,5 +35,6 @@ public class ItemService{
     }
 
     public void deleteById(String id) {
+        itemRepo.deleteById(id);
     }
 }
