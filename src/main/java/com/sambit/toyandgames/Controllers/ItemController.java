@@ -27,6 +27,12 @@ public class ItemController {
         return itemService.findAll();
     }
 
+    @GetMapping(value="/items/{id}")
+    public Item getItemByID(@PathVariable String id){
+        Optional<Item > _item = itemService.findById(id);
+        return _item.get();
+    }
+
     @GetMapping(value="/category/{category}")
     public List<Item> getItemsByCategory(@PathVariable String category){
         return itemService.findByCategory(category);
